@@ -10,20 +10,57 @@ class Note {
 
 class App {
   constructor() {
-    this.notes = [];
+    this.notes = JSON.parse(localStorage.getItem("notes")) || [];
     // select different HTML elements
+    this.selectedNoteId = "";
+    this.miniSidebar = true;
     this.$activeForm = document.querySelector(".active-form");
     this.$inactiveForm = document.querySelector(".inactive-form");
     this.$noteTitle = document.querySelector("#note-title");
     this.$noteText = document.querySelector("#note-text");
     this.$notes = document.querySelector(".notes");
+    this.$form = document.querySelector("#form");
+    this.$modal = document.querySelector(".modal");
+    this.$modalForm = document.querySelector("#modal-form");
+    this.$modalTitle = document.querySelector("#modal-title");
+    this.$modalText = document.querySelector("#modal-text");
+    this.$closeModalForm = document.querySelector("#modal-btn");
+    this.$sidebar = document.querySelector(".sidebar");
+    this.$sidebarActiveItem = document.querySelector(".active-item");
+
     this.addEventListeners();
+    this.displayNotes();
   }
 
   addEventListeners() {
     document.body.addEventListener("click", (event) => {
       // The this keyword is the this for the parent function in this case it points to our App
+      console.log(this);
       this.handleFormClick(event);
+      this.closeModal(event);
+      this.openModal(event);
+      this.handleArchiving(event);
+    });
+
+    // prevents the form from being sent and the page reloading
+    this.$form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const title = this.$noteTitle.value;
+      const text = this.$noteText.value;
+      this.addNote({ title, text });
+      this.closeActiveForm();
+    });
+
+    this.$closeModalForm.addEventListener("click", (event) => {
+      event.preventDefault();
+    });
+
+    this.$sidebar.addEventListener("mouseover", (event) => {
+      this.handleToggleSidebar();
+    });
+
+    this.$sidebar.addEventListener("mouseout", (event) => {
+      this.handleToggleSidebar();
     });
   }
 
@@ -44,8 +81,53 @@ class App {
       // if we click outside the active and inactive form, run the closeFormFunction
     } else if (!isActiveFormClickedOn && !isInactiveFormClickedOn) {
       this.addNote({ title, text });
-
       this.closeActiveForm();
+    }
+  }
+
+  //
+  openModal(event) {
+    // it is the note that we selected.
+    const $selectedNote = event.target.closest(".note");
+    if ($selectedNote && !event.target.closest(".archive")) {
+      this.selectedNoteId = $selectedNote.id;
+      const [, title, text] = $selectedNote.children;
+
+      this.$modalTitle.value = title.innerHTML;
+      this.$modalText.value = text.innerHTML;
+      this.$modal.classList.add("open-modal");
+    } else {
+      return;
+    }
+  }
+
+  closeModal(event) {
+    // check if is what caused the event inside a modal form
+    const isModalFormClickedOn = this.$modalForm.contains(event.target);
+    const isClosedModalBtnClickedOn = this.$closeModalForm.contains(
+      event.target
+    );
+    console.log(isClosedModalBtnClickedOn);
+    if (
+      (!isModalFormClickedOn || isClosedModalBtnClickedOn) &&
+      this.$modal.classList.contains("open-modal")
+    ) {
+      this.editNote(this.selectedNoteId, {
+        title: this.$modalTitle.value,
+        text: this.$modalText.value,
+      });
+      this.$modal.classList.remove("open-modal");
+      console.log(this.selectedNoteId);
+    }
+  }
+
+  handleArchiving(event) {
+    const $selectedNote = event.target.closest(".note");
+    if ($selectedNote && event.target.closest(".archive")) {
+      this.selectedNoteId = $selectedNote.id;
+      this.deleteNote(this.selectedNoteId);
+    } else {
+      return;
     }
   }
 
@@ -66,7 +148,7 @@ class App {
     if (text || title) {
       const newNote = new Note(cuid(), title, text);
       this.notes = [...this.notes, newNote];
-      this.displayNotes();
+      this.render();
     }
   }
 
@@ -78,13 +160,58 @@ class App {
       }
       return note;
     });
+    this.render();
+  }
+
+  deleteNote(id) {
+    this.notes = this.notes.filter((note) => note.id != id);
+    this.render();
+  }
+
+  handleMouseOverNote(element) {
+    const $note = document.querySelector(`#${element.id}`);
+    const $checkNote = $note.querySelector(".check-circle");
+    const $noteFooter = $note.querySelector(".note-footer");
+    $checkNote.style.visibility = "visible";
+    $noteFooter.style.visibility = "visible";
+  }
+
+  handleMouseOutNote(element) {
+    const $note = document.querySelector(`#${element.id}`);
+    const $checkNote = $note.querySelector(".check-circle");
+    const $noteFooter = $note.querySelector(".note-footer");
+    $checkNote.style.visibility = "hidden";
+    $noteFooter.style.visibility = "hidden";
+  }
+
+  handleToggleSidebar() {
+    if (this.miniSidebar) {
+      this.$sidebar.style.width = "250px";
+      this.$sidebar.classList.add("sidebar-hover");
+      this.$sidebarActiveItem.classList.add("sidebar-active-item");
+      this.miniSidebar = false;
+    } else {
+      this.$sidebar.style.width = "80px";
+      this.$sidebar.classList.remove("sidebar-hover");
+      this.$sidebarActiveItem.classList.remove("sidebar-active-item");
+      this.miniSidebar = true;
+    }
+  }
+
+  saveNotes() {
+    localStorage.setItem("notes", JSON.stringify(this.notes));
+  }
+
+  render() {
+    this.saveNotes();
+    this.displayNotes();
   }
 
   displayNotes() {
     this.$notes.innerHTML = this.notes
       .map(
-        ({ title, text }) =>
-          ` <div class="note">
+        ({ title, text, id }) =>
+          ` <div id= ${id} class="note" onmouseover="app.handleMouseOverNote(this)" onmouseout="app.handleMouseOutNote(this)">
           <span class="material-symbols-outlined check-circle"
             >check_circle</span
           >
@@ -115,7 +242,7 @@ class App {
               >
               <span class="tooltip-text">Add Image</span>
             </div>
-            <div class="tooltip">
+            <div class="tooltip archive">
               <span class="material-symbols-outlined hover small-icon"
                 >archive</span
               >
@@ -132,10 +259,6 @@ class App {
         `
       )
       .join("");
-  }
-
-  deleteNote(id) {
-    this.notes = this.notes.filter((note) => note.id != id);
   }
 }
 

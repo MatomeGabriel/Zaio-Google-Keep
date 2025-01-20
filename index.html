@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
+      rel="shortcut icon"
+      href="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
+      type="image/x-icon" />
+    <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Google Keep</title>
@@ -64,7 +68,7 @@
     </nav>
     <main>
       <div class="sidebar">
-        <div class="sidebar-item">
+        <div class="sidebar-item active-item">
           <span class="material-symbols-outlined hover active">
             lightbulb
           </span>
@@ -108,7 +112,7 @@
       </div>
 
       <div class="form-container active-form">
-        <form>
+        <form class="form" id="form">
           <input
             id="note-title"
             type="text"
@@ -179,10 +183,15 @@
 
       <div class="modal">
         <div class="modal-content">
-          <div class="form-container active-form">
-            <form>
-              <input type="text" class="note-title" placeholder="Title" />
+          <div class="form-container">
+            <form class="form" id="modal-form">
               <input
+                type="text"
+                id="modal-title"
+                class="note-title"
+                placeholder="Title" />
+              <input
+                id="modal-text"
                 type="text"
                 class="note-text"
                 placeholder="Take a note..." />
@@ -237,7 +246,7 @@
                     <span class="tooltip-text">Redo</span>
                   </div>
                 </div>
-                <button class="close-btn">close</button>
+                <button id="modal-btn" class="close-btn">close</button>
               </div>
             </form>
           </div>
