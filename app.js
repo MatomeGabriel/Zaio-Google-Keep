@@ -1,5 +1,6 @@
 "use strict";
 
+//
 class Note {
   constructor(id, title, text) {
     this.id = id;
@@ -11,9 +12,10 @@ class Note {
 class App {
   constructor() {
     this.notes = JSON.parse(localStorage.getItem("notes")) || [];
-    // select different HTML elements
     this.selectedNoteId = "";
     this.miniSidebar = true;
+
+    // select different HTML elements
     this.$activeForm = document.querySelector(".active-form");
     this.$inactiveForm = document.querySelector(".inactive-form");
     this.$noteTitle = document.querySelector("#note-title");
@@ -35,7 +37,7 @@ class App {
   addEventListeners() {
     document.body.addEventListener("click", (event) => {
       // The this keyword is the this for the parent function in this case it points to our App
-      console.log(this);
+
       this.handleFormClick(event);
       this.closeModal(event);
       this.openModal(event);
@@ -107,7 +109,6 @@ class App {
     const isClosedModalBtnClickedOn = this.$closeModalForm.contains(
       event.target
     );
-    console.log(isClosedModalBtnClickedOn);
     if (
       (!isModalFormClickedOn || isClosedModalBtnClickedOn) &&
       this.$modal.classList.contains("open-modal")
@@ -117,7 +118,6 @@ class App {
         text: this.$modalText.value,
       });
       this.$modal.classList.remove("open-modal");
-      console.log(this.selectedNoteId);
     }
   }
 
