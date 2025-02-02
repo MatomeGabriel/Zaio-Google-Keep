@@ -22,5 +22,5 @@ Follow these instructions to set up and run the project on your local machine.
 
 1. **Clone the repository** to your local machine:
    ```bash
-   git clone https://github.com/your-username/google-keep-clone.git
+   git clone https://github.com/MatomeGabriel/Zaio-Google-Keep
    ```
