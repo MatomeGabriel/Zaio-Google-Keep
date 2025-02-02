@@ -1,6 +1,6 @@
 "use strict";
 
-//
+// Note class
 class Note {
   constructor(id, title, text) {
     this.id = id;
@@ -9,6 +9,7 @@ class Note {
   }
 }
 
+// App class
 class App {
   constructor() {
     this.notes = JSON.parse(localStorage.getItem("notes")) || [];
@@ -30,10 +31,14 @@ class App {
     this.$sidebar = document.querySelector(".sidebar");
     this.$sidebarActiveItem = document.querySelector(".active-item");
 
+    // Handles events
     this.addEventListeners();
+
+    // Displays our
     this.displayNotes();
   }
 
+  // Handles all of our events
   addEventListeners() {
     document.body.addEventListener("click", (event) => {
       // The this keyword is the this for the parent function in this case it points to our App
@@ -184,6 +189,7 @@ class App {
     $noteFooter.style.visibility = "hidden";
   }
 
+  // Toggles Sidebar when hovering on the sidebar
   handleToggleSidebar() {
     if (this.miniSidebar) {
       this.$sidebar.style.width = "250px";
@@ -198,6 +204,7 @@ class App {
     }
   }
 
+  // Saves notes to our local storage
   saveNotes() {
     localStorage.setItem("notes", JSON.stringify(this.notes));
   }
@@ -262,4 +269,5 @@ class App {
   }
 }
 
+// Creates a new instance of our app
 const app = new App();

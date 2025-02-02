@@ -7,6 +7,7 @@ A simple clone of Google Keep built with HTML, CSS and JavaScript
 - Add, edit, and delete notes
 - Modal for editing notes
 - Sidebar for easy navigation
+- Local Storage for Persistent Data
 
 ## Getting Started
 
