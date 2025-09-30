@@ -5,7 +5,7 @@ This project focuses on mastering vanilla web technologies and solving real-worl
 
 ## 🚀 Demo
 
-🔗 [Live Demo]([https://your-deployed-app-link.com](https://gm-google-keep-js.netlify.app/))  
+🔗 [Live Demo]([https://your-deployed-app-link.com](https://gm-google-keep-js.netlify.app/) 
 📁 [GitHub Repository](https://github.com/MatomeGabriel/Zaio-Google-Keep)
 
 ---
@@ -33,10 +33,12 @@ This project focuses on mastering vanilla web technologies and solving real-worl
 ## 📸 Screenshots
 
 ### Add, Edit, Delete, and Save Notes  
-![Add/Edit/Delete Notes](./assets/google-keep-ui-1.png)
+![Add/Edit/Delete Notes](<img width="1500" height="683" alt="image" src="https://github.com/user-attachments/assets/d5342b5f-105b-4553-94ae-a64763b5d053" />
+)
 
 ### Note Editor with Formatting Toolbar  
-![Note Editor](./assets/google-keep-ui-2.png)
+![Note Editor](<img width="1500" height="684" alt="image" src="https://github.com/user-attachments/assets/d363f086-5cad-499b-8b3c-b1ae29b371d0" />
+)
 
 ---
 
@@ -55,9 +57,9 @@ Pull requests are welcome! If you’d like to suggest improvements or new featur
 ## 📬 Contact
 
 Connect with me:  
-🔗 [LinkedIn]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/matome-montja-538b55127/))  
+🔗 [LinkedIn]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/matome-montja-538b55127/)
 📲 [TikTok](https://tiktok.com/@your-handle)  
-🌐 [Portfolio]([https://your-portfolio-link.com](https://gm-gabriel-montja.netlify.app/))
+🌐 [Portfolio]([https://your-portfolio-link.com](https://gm-gabriel-montja.netlify.app/)
 
 ---
 
