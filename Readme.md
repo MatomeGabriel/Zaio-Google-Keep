@@ -64,7 +64,7 @@ Connect with me:
 
 📲 [TikTok](https://tiktok.com/@your-handle)  
 
-🌐 [Portfolio]([https://gm-gabriel-montja.netlify.app/]
+🌐 [Portfolio]([https://gm-gabriel-montja.netlify.app/])
 
 ---
 
