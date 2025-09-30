@@ -33,12 +33,14 @@ This project focuses on mastering vanilla web technologies and solving real-worl
 ## 📸 Screenshots
 
 ### Add, Edit, Delete, and Save Notes  
-![Add/Edit/Delete Notes](<img width="1500" height="683" alt="image" src="https://github.com/user-attachments/assets/d5342b5f-105b-4553-94ae-a64763b5d053" />
-)
+![Add/Edit/Delete Notes]
+<img width="1500" height="683" alt="image" src="https://github.com/user-attachments/assets/d5342b5f-105b-4553-94ae-a64763b5d053" />
+
 
 ### Note Editor with Formatting Toolbar  
-![Note Editor](<img width="1500" height="684" alt="image" src="https://github.com/user-attachments/assets/d363f086-5cad-499b-8b3c-b1ae29b371d0" />
-)
+![Note Editor]
+<img width="1500" height="684" alt="image" src="https://github.com/user-attachments/assets/99541fbb-352f-42d6-b13d-ad2f8df6dacd" />
+
 
 ---
 
