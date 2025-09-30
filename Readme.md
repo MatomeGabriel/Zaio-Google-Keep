@@ -6,6 +6,7 @@ This project focuses on mastering vanilla web technologies and solving real-worl
 ## 🚀 Demo
 
 🔗 [Live Demo]([https://your-deployed-app-link.com](https://gm-google-keep-js.netlify.app/) 
+
 📁 [GitHub Repository](https://github.com/MatomeGabriel/Zaio-Google-Keep)
 
 ---
@@ -60,7 +61,9 @@ Pull requests are welcome! If you’d like to suggest improvements or new featur
 
 Connect with me:  
 🔗 [LinkedIn]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/matome-montja-538b55127/)
+
 📲 [TikTok](https://tiktok.com/@your-handle)  
+
 🌐 [Portfolio]([https://your-portfolio-link.com](https://gm-gabriel-montja.netlify.app/)
 
 ---
