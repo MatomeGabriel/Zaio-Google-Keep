@@ -60,11 +60,11 @@ Pull requests are welcome! If you’d like to suggest improvements or new featur
 ## 📬 Contact
 
 Connect with me:  
-🔗 [LinkedIn]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/matome-montja-538b55127/)
+🔗 [LinkedIn](https://www.linkedin.com/in/matome-montja-538b55127/)
 
 📲 [TikTok](https://tiktok.com/@your-handle)  
 
-🌐 [Portfolio]([https://your-portfolio-link.com](https://gm-gabriel-montja.netlify.app/)
+🌐 [Portfolio]([https://gm-gabriel-montja.netlify.app/]
 
 ---
 
